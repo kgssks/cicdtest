@@ -22,10 +22,9 @@ jobs:
         with:
           files: ./src/main/resources/application.yml
         env:
-          aws:
-            dburl: ${{ secrets.KAKAO_CLIENT }}
-            dbuser: ${{ secrets.KAKAO_SECRET }}
-            dbpass: ${{ secrets.KAKAO_REDIRECT }}
+          aws.dburl: ${{ secrets.DEV_DBURL }}
+          aws.dbuser: ${{ secrets.DEV_DBUSER }}
+          aws.dbpass: ${{ secrets.DEV_DBPASS }}
 
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
