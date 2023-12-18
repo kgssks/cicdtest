@@ -20,7 +20,7 @@ jobs:
       - name: Set Environment
         uses: microsoft/variable-substitution@v1
         with:
-          files: ./src/main/resources/application.yml
+          files: ./cicdtest/src/main/resources/application.yml
         env:
           aws.dburl: ${{ secrets.DEV_DBURL }}
           aws.dbuser: ${{ secrets.DEV_DBUSER }}
