@@ -18,14 +18,14 @@ jobs:
           java-version: 17
 
       - name: Set Environment
-          uses: microsoft/variable-substitution@v1
-          with:
-            files: ./src/main/resources/application.yml
-          env:
-            aws:
-              dburl: ${{ secrets.KAKAO_CLIENT }}
-              dbuser: ${{ secrets.KAKAO_SECRET }}
-              dbpass: ${{ secrets.KAKAO_REDIRECT }}
+        uses: microsoft/variable-substitution@v1
+        with:
+          files: ./src/main/resources/application.yml
+        env:
+          aws:
+            dburl: ${{ secrets.KAKAO_CLIENT }}
+            dbuser: ${{ secrets.KAKAO_SECRET }}
+            dbpass: ${{ secrets.KAKAO_REDIRECT }}
 
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
@@ -58,8 +58,8 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }} # github secrets로 등록한 값 사용
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} # github secrets로 등록한 값 사용
-          application_name: spring-with-db-test # EB application 이름
-          environment_name: Spring-with-db-test-env # EB environment 이름
+          application_name: Todoweb-server-github-action # EB application 이름
+          environment_name: Todoweb-server-github-action-env # EB environment 이름
           version_label: Github Action-${{steps.current-time.outputs.formattedTime}} # 배포 버전은 타임스탬프를 이용하여 구분
           region: ap-northeast-2
           deployment_package: deploy/deploy.zip
