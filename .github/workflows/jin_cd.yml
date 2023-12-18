@@ -20,11 +20,11 @@ jobs:
       - name: Set Environment
         uses: microsoft/variable-substitution@v1
         with:
-          files: ./cicdtest/src/main/resources/application.yml
+          files: ./src/main/resources/application.yml
         env:
-          aws.dburl: ${{ secrets.DEV_DBURL }}
-          aws.dbuser: ${{ secrets.DEV_DBUSER }}
-          aws.dbpass: ${{ secrets.DEV_DBPASS }}
+          spring.datasource.url: ${{ secrets.DEV_DBURL }}
+          spring.datasource.username: ${{ secrets.DEV_DBUSER }}
+          spring.datasource.password: ${{ secrets.DEV_DBPASS }}
 
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
